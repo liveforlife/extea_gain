@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html;">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no; email=no">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link href="../../css/swiper.min.css" rel="stylesheet" />
+	<link href="../../css/animate.min.css" rel="stylesheet" />
+	<script>
+		 ! function(x) {
+            function w() {
+                var v, u, t, tes, scale,
+                    s = x.document,
+                    r = s.documentElement,
+                    a = r.clientWidth,
+                    h = r.clientHeight,
+                    ratio = 1080 / 1736;
+                    console.log(v);
+                if (!v && !u) {
+                    var n = !!x.navigator.appVersion.match(/AppleWebKit.*Mobile.*/);
+                    v = x.devicePixelRatio;
+                    //tes=x.devicePixelRatio;
+                    console.log(v+','+n);
+                    v = n ? v : 1, u = 1 / v;
+                    console.log(v);
+                }
+                r.style.fontSize = a / h > ratio ? h * ratio / 320 * 20 + "px" : a / 320 * 20 + "px";
+                scale = a / h > ratio ? h / 1736 : a / 1080;
+                console.log(scale);
+            }
+            w();
+        }(window);
+	</script>
+	<style>
+*{
+	margin:0;
+	padding:0;
+}
+html,body{
+	height:100%;
+}
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+  
+    .music{position: absolute;z-index: 999;top: 5px; right: 10px;}
+    .music-play{-webkit-animation:music 1.5s linear infinite;animation:music 1.5s linear infinite;}
+    .s1{background:url(../../images/test/s1.jpg)no-repeat;background-size: cover;}
+     .s2{background:url(../../images/test/s2.jpg)no-repeat;background-size: cover;}
+      .s3{background:url(../../images/test/s3.jpg)no-repeat;background-size: cover;}
+       .s4{background:url(../../images/test/s4.jpg)no-repeat;background-size: cover;}
+        .s5{background:url(../../images/test/s5.jpg)no-repeat;background-size: cover;}
+@-webkit-keyframes start {
+	0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
+	60% {opacity: 1;-webkit-transform: translate(0,0);}
+	100% {opacity: 0;-webkit-transform: translate(0,-8px);}
+}
+@-moz-keyframes start {
+	0%,30% {opacity: 0;-moz-transform: translate(0,10px);}
+	60% {opacity: 1;-moz-transform: translate(0,0);}
+	100% {opacity: 0;-moz-transform: translate(0,-8px);}
+}
+@keyframes start {
+	0%,30% {opacity: 0;transform: translate(0,10px);}
+	60% {opacity: 1;transform: translate(0,0);}
+	100% {opacity: 0;transform: translate(0,-8px);}
+}
+@-webkit-keyframes music{
+  0%{-webkit-transform:rotate(0);transform:rotate(0);}
+  100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);}
+}
+@-webkit-keyframes smallerBig{
+  0%{-webkit-transform:scale(1)}
+  100%{-webkit-transform:scale(1.5)}
+}
+@-webkit-keyframes smallerBig2{
+  0%{-webkit-transform:scale(1)}
+  100%{-webkit-transform:scale(1.2);opacity:0;}
+}
+#array{
+	position:absolute;z-index:999;-webkit-animation: start 1.5s infinite ease-in-out;
+}    
+.loadwrap{  width: 100%;height: 100%;background:url(../../images/test/bg.jpg) no-repeat;position: absolute;z-index: 99;background-size: cover;}
+.tabBox .hd{ height:40px; line-height:40px; padding:0 10px; font-size:20px; background:#f4f4f4; border-bottom:1px solid #F5AB38; position:relative;  }
+.tabBox .hd ul{ position:absolute; height:41px; top:0; overflow:hidden;  }
+.tabBox .hd ul li{ float:left; padding:0 10px; color:#666;  }
+.tabBox .hd ul .on{ border:2px solid #F5AB38; border-bottom-color:#fff; background:#fff; color:#CF7F21;   }
+.tabBox .bd ul{ padding:10px 0 10px 10px; text-align: center;width: 100%; }
+.tabBox .bd li{ height:7.5rem; line-height:7.5rem; list-style: none;  }
+.tabBox .bd li a{ color:#666;  }
+	</style>
+	
+	</head>
+	<body>
+		<div class="loadwrap" >
+			<div id="caseBlanche" style="text-align: center;margin-top:6rem;">
+			    <div id="rond">
+			        <div id="test"></div>
+			    </div>
+			    <div id="load">
+			        <!--<i>Zhaopin.com</i>-->
+			        <i><img src="../../images/test/zhaopin.png" style="width: 5rem;"></i> 
+			    </div>
+			    <div class="loading" style="margin-top: 30px;"><span>0</span>%</div>
+				<img src="../../images/test/l1.png" alt="" class="l1" style="width:6rem;margin-top: 40px;">
+			</div>
+		</div>
+
+		<div id="" class="swiper-container">
+			 <img class="music music-play" src="../../images/test/music2.png" style="width: 20px">
+			<img src="../../images/test/arrow.png" style="width:20px;height:15px; top:460px; left:150px;" id="array" class="resize"> 
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<section class="s1" style="width: 100%;height: 100%;text-align: center;">
+							<div style="display: flex;flex-direction: column;width: 100%;">
+								<div style="display: flex;flex-direction: row;width: 100%;justify-content: center;">
+									<img src="../../images/test/p101.png" class="ani" style="width: 60px;height: 60px;margin: 20px 20px 20px;"
+										 swiper-animate-effect="bounceIn" swiper-animate-duration="2.5s" swiper-animate-delay="0.3s"  />
+									<img src="../../images/test/p102.png" class="ani" style="width: 60px;height: 60px;margin: 20px 0px 20px;"
+										swiper-animate-effect="bounceIn" swiper-animate-duration="2.5s" swiper-animate-delay="0.3s" />
+								</div>
+								<div style="display: flex;flex-direction: row;width: 100%;justify-content: center;">
+									<img src="../../images/test/p103.png" class="ani"  style="width: 12rem;"
+										 swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"/>
+								</div>
+							</div>
+							<!--<div style="position: absolute;text-align: center;width: 100%;">-->
+								<div style="position: relative;width: 100%;text-align: center;display: flex;flex-direction:row ;justify-content: center;">
+									<img src="../../images/test/p110.png" 
+										swiper-animate-effect="zoomIn" class="ani" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"
+										style="width: 10rem;position: absolute;-webkit-animation:music 6s linear infinite;animation:music 6s linear 1s infinite;"/>
+									<img src="../../images/test/p104.png" 
+										style="width: 3rem;position: absolute;top:3.5rem;-webkit-animation:smallerBig 6s linear infinite;animation:smallerBig 6s linear 1s infinite;"/>
+									<img src="../../images/test/p105.png"
+										 style="width: 8rem;top:1rem;position: absolute;-webkit-animation:smallerBig2 6s linear infinite;animation:smallerBig2 6s linear 1s infinite;"/>
+									<img src="../../images/test/p106.png" class="ani" style="width: 1.5rem;position: absolute;top: 2rem;"
+										swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"/>
+									<img src="../../images/test/p107.png" class="ani" style="width: 10rem;position: absolute;top: -0.5rem;"
+										swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"/>
+								</div> 
+							<!--</div>-->
+							<div style="width: 100%;position: absolute;bottom: 2.5rem">
+								<img src="../../images/test/p108.png" class="ani" style="width: 12rem;position: absolute;"
+									swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.7s"/>
+								<img src="../../images/test/p109.png" class="ani" style="width: 10rem;position: relative;top:1px;left: 1rem;"
+									swiper-animate-effect="bounceIn" swiper-animate-duration="2s" swiper-animate-delay="1.3s"/>
+							</div>
+					</section>
+				</div>
+				<div class="swiper-slide">
+					<section class="s2" style="width: 100%;height: 100%;">
+						<div style="margin-bottom: 30px;padding-top: 3rem;">
+							<img src="../../images/test/p201.png" class="ani" style="width: 3.6rem;margin-left: 1.6rem;"
+								swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"/>
+							<img src="../../images/test/p202.png" class="ani" style="width: 3.6rem;float: right;margin-right: 5%;clear: both;"
+								swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"/>
+						</div>
+						<div style="text-align: center;width: 100%;">
+						<div style="display: flex;flex-direction: column;margin-left: 2.6rem;">
+							<img src="../../images/test/p203.png" class="ani" style="width: 12.14rem;"
+								swiper-animate-effect="bounceInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s"/>
+							<img src="../../images/test/p204.png" class="ani" style="width: 12.14rem;"
+								swiper-animate-effect="bounceInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.6s"/>
+							<img src="../../images/test/p205.png" class="ani" style="width: 12.14rem;"
+								swiper-animate-effect="bounceInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.7s"/>
+						</div>
+						<img src="../../images/test/p206.png" class="ani" style="width: 6.14rem;position: absolute;top: 25%;left: 1.6rem;"
+							swiper-animate-effect="bounceInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.7s"/>
+						</div>
+					</section>
+				</div>
+				<div class="swiper-slide">
+					<section class="s3" style="width: 100%;height: 100%;">
+						<div style="padding-top: 3.14rem;padding-left:1.5rem;">
+							<img src="../../images/test/p302.png" class="ani" style="width: 10.14rem;"
+								swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.6s" />
+							<img src="../../images/test/p301.png" class="ani" style="width:3.6rem;position: absolute;right: 0.5rem;"
+								swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"	 />
+						</div>
+						<div style="position: absolute;right: 1.5rem;width:6.14rem;">
+							<img src="../../images/test/p303.png" class="ani" style="width:  6.14rem;" 
+								swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"	/>
+							<img src="../../images/test/p304.png" class="ani" style="width:  6.14rem;position: absolute;top: 0px;" 
+								swiper-animate-effect="bounceIn" swiper-animate-duration="2s" swiper-animate-delay="1.3s"/>
+						</div>
+					</section>
+				</div>
+				<div class="swiper-slide">
+					<section class="s4" style="width: 100%;height: 100%;">
+						<div style="position: absolute;margin-top: 3rem;width: 100%;">
+							<img src="../../images/test/p401.png" class="ani" style="width: 2.5rem;position: absolute;right: 5%;" 
+								swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.6s" />
+							<img src="../../images/test/p402.png" class="ani" style="width: 12rem;position: relative;left: 5%;" 
+								swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"/>
+							<img src="../../images/test/p403.png" class="ani" style="width: 12rem;position:absolute;top: 0px;left: 5%;"
+								 swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"/>
+							<img src="../../images/test/p404.png" class="ani" style="width: 12rem;position: absolute;top: 0px;left: 5%;"
+								 swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"/>
+							<img src="../../images/test/p405.png" class="ani" style="width: 12rem;position: absolute;top: 0px;left: 5%;"
+								 swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s"/>
+						</div>
+						<div id="leftTabBox" class="tabBox ani" style="padding-top: 10rem;" 
+							swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s">
+							<div class="bd " >
+							        <ul>
+							            <li><img src="../../images/test/p406-1.png" style="width: 12rem;"></li>
+							        </ul>
+							        <ul>
+							            <li><img src="../../images/test/p406-2.png" style="width: 12rem;"></li>
+							        </ul>
+							        <ul>
+							            <li><img src="../../images/test/p406-3.png" style="width: 12rem;"></li>
+							        </ul>
+							</div>
+						</div>
+						<div id="leftTabBox1" class="tabBox ani"  
+							swiper-animate-effect="bounceIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.4s">
+							<div class="bd">
+							        <ul>
+							            <li><img src="../../images/test/p407-1.png" style="width: 12rem;"></li>
+							        </ul>
+							        <ul>
+							            <li><img src="../../images/test/p407-2.png" style="width: 12rem;"></li>
+							        </ul>
+							        <ul>
+							            <li><img src="../../images/test/p407-3.png" style="width: 12rem;"></li>
+							        </ul>
+							</div>
+						</div>
+						<script src="../../js/TouchSlide.1.1.js"></script>
+					    <script>
+					    	 TouchSlide({ slideCell:"#leftTabBox",autoPlay:true,  effect:"leftLoop", });
+					    	 TouchSlide({ slideCell:"#leftTabBox1",autoPlay:true,  effect:"leftLoop", });
+					    </script>
+					</section>
+				</div>
+				<!--<div class="swiper-slide">
+					<section class="s5" style="width: 100%;height: 100%;"></section>
+				</div>-->
+				
+			</div>
+			
+		</div>
+		<!--<audio id="audios" src="../../mp3/video20170725.mp3" loop="loop" autoplay="autoplay"></audio>-->
+<script src="../../js/swiper.min.js"></script>
+<script src="../../js/swiper.animate.min.js"></script>
+<script src="../../js/jquery-1.9.1.min.js"></script>
+<script src="../../js/jweixin-1.0.0.js"></script>
+<script src="../../js/sha1.js"></script>
+
+<script>
+	
+	 var images =[],count = 0;
+        
+     $('html,body').find('img').each(function(i) {
+         images[i]=$(this).attr('src');
+     });
+     for (var i = 0; i < images.length; i++) {
+         img = new Image;
+         img.src = images[i];
+		 img.onload = function() {                                    
+            count++;
+	        var per = Math.floor(count/images.length*100);
+	        $('.loading span').text(per);             
+            if(count==images.length)
+            {
+            	setTimeout(begin,500);
+                var idsContainer = $("section");
+                var len = idsContainer.length;
+                var h=$(window).height();
+                var w=$(window).width();
+                for(var index = 0; index < len; index++){
+                    var $container = $(idsContainer[index]);
+                    $container.css({"height":h,"width":w})
+                }
+                function begin(){
+	                $('.loadwrap').fadeOut(100,function(){
+	                    $('.cont section').eq(0).addClass('cur');
+	                });
+	                 var swiper = new Swiper('.swiper-container', {
+				        //paginationClickable: true,
+				       // direction: 'vertical',
+						 loop:'true',
+                         onSlideChangeEnd: function(swiper){
+                             if(swiper.activeIndex==14){
+                                 $(".arr").hide();
+                             }else{
+                                 $(".arr").show();
+                             }
+                         },
+                         direction : 'vertical',
+						   //pagination: '.swiper-pagination',
+						  //virtualTranslate : true,
+						   mousewheelControl : true,
+						   onInit: function(swiper){
+						   swiperAnimateCache(swiper);
+						   swiperAnimate(swiper);
+							  },
+						   onSlideChangeEnd: function(swiper){
+							swiperAnimate(swiper);
+						    },
+							onTransitionEnd: function(swiper){
+							swiperAnimate(swiper);
+						    },
+							watchSlidesProgress: true,
+						      onProgress: function(swiper){
+						        for (var i = 0; i < swiper.slides.length; i++){
+						          var slide = swiper.slides[i];
+						          var progress = slide.progress;
+						          var translate = progress*swiper.height/4;  
+								  scale = 1 - Math.min(Math.abs(progress * 0.5), 1);
+						          var opacity = 1 - Math.min(Math.abs(progress/2),0.5);
+						          slide.style.opacity = opacity;
+								  es = slide.style;
+								  es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,'+translate+'px,-'+translate+'px) scaleY(' + scale + ')';
+						
+						        }
+						      },
+							   onSetTransition: function(swiper, speed) {
+						        for (var i = 0; i < swiper.slides.length; i++){
+						          es = swiper.slides[i].style;
+								  es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
+						
+						        }
+						      },
+				    });
+            	}
+            }
+        }
+         
+     };
+</script>
+<script>
+scaleW=window.innerWidth/320;
+scaleH=window.innerHeight/480;
+var resizes = document.querySelectorAll('.resize');
+  for (var j=0; j<resizes.length; j++) {
+   resizes[j].style.width=parseInt(resizes[j].style.width)*scaleW+'px';
+   resizes[j].style.height=parseInt(resizes[j].style.height)*scaleH+'px';
+   resizes[j].style.top=parseInt(resizes[j].style.top)*scaleH+'px';
+   resizes[j].style.left=parseInt(resizes[j].style.left)*scaleW+'px'; 
+  }
+var music=document.getElementById('audios');
+ setTimeout(function(){
+ 	music.play();
+},100)
+ document.addEventListener('DOMContentLoaded', function () {
+    function audioAutoPlay() {
+        var audio = document.getElementById("audios");
+        audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        $(".music").on("touchstart",function(){
+            if(!music.paused){
+                music.pause();
+                $(this).removeClass("music-play")
+            }else{
+                music.play();
+                $(this).addClass("music-play")
+            }
+        });
+    }
+    audioAutoPlay();
+});
+</script>
+<script src="../../js/share.js"></script>
+	</body>
+</html>
